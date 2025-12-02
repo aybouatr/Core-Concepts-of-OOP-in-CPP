@@ -1,24 +1,42 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Fixed.hpp                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aybouatr <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/11/23 10:58:27 by aybouatr          #+#    #+#             */
+/*   Updated: 2025/11/23 10:58:29 by aybouatr         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 # ifndef FIXED_HPP
 # define FIXED_HPP
 
+
 #include <iostream>
+#include <cmath>
+
+
 
 class Fixed
 {
 	private:
-		int	_Value;
-		static const int _fract_bits;
+		int	_fp_value;
+	 	static const int _fract_bits;
 
 	public:
 		Fixed();
-		Fixed(const int number);
-		Fixed(const double number);
-
+		Fixed(const int input);
+		Fixed(const float input);
+		
 		Fixed(const Fixed& copy);
+		Fixed& operator=(const Fixed& other);
 		~Fixed();
-		Fixed &operator=(const Fixed &src);
-		int getRawBits(void)const;
-		void setRawBits(int const raw);
-
+		float toFloat(void)const;
+		int toInt(void)const;
 };
+
+std::ostream    &operator<<(std::ostream &o, Fixed const &fixed);
+
 # endif

@@ -5,7 +5,7 @@ INFILES = 	main.cpp src/Harl.cpp
 
 OBJFILES = $(INFILES:.cpp=.o)
 
-NAME = Harl
+NAME = harlFilter
 
 all: $(NAME)
 

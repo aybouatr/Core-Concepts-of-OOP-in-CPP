@@ -1,5 +1,16 @@
-#include "../include/Harl.hpp"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Harl.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aybouatr <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/11/17 11:55:13 by aybouatr          #+#    #+#             */
+/*   Updated: 2025/11/17 11:55:16 by aybouatr         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
+#include "../include/Harl.hpp"
 
 
 Harl::Harl()
@@ -22,7 +33,7 @@ void Harl::_info(void)
 
 void Harl::_warning(void)
 {
-	std::cout << "I think I deserve to have some extra bacon for free. I've been coming for years whereas you started working here since last month." << std::endl;
+	std::cout << "I think I deserve to have some extra bacon for free. I've been coming for years, whereas you started working here just last month." << std::endl;
 }
 
 void Harl::_error(void)
@@ -48,5 +59,4 @@ void Harl::complain(std::string level)
 		}
 		i++;
 	}
-	std::cout << "No Valid Level.\n";
 }

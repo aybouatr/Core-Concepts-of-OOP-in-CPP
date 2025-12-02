@@ -1,9 +1,19 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aybouatr <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/11/16 10:12:38 by aybouatr          #+#    #+#             */
+/*   Updated: 2025/11/16 10:12:40 by aybouatr         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 
 #include "include/HumanA.hpp"
 #include "include/HumanB.hpp"
 #include "include/Weapon.hpp"
-
-
 
 
 int main()
@@ -23,6 +33,6 @@ int main()
         jim.attack();
         club.setType("some other type of club");
         jim.attack();
-    return 0;
+        return 0;
     }
 }
