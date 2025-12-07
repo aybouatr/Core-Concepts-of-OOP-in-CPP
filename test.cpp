@@ -10,15 +10,23 @@ using namespace std;
 
 class base
 {
+
+    int x = 4;
+
 public:
 
-    virtual void func()
+    
+
+    const int returnx() const
     {
-        cout << "hello from base A " << endl;
+        // x++;
+        return x;
     }
+
+   
 };
 
-class baseB : virtual public base
+class baseB :  public base
 {
 public:
     virtual void func()
@@ -47,8 +55,10 @@ public:
 
 int main()
 {
-    base* D = new baseB;
-    D->func();      // calls baseD::func()
-    delete D;
-    return 0;
+   base b;
+
+    const int n = b.returnx();
+   std::cout << n << std::endl;
+
+
 }

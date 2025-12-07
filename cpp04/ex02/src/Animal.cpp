@@ -38,8 +38,3 @@ Animal::~Animal()
 {
     std::cout << "Animal call desractor " << std::endl;
 }
-
-void Animal::makeSound() const
-{
-    std::cout << "Sound Animal " << std::endl;
-}
