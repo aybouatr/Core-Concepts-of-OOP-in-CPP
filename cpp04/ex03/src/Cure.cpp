@@ -22,7 +22,7 @@ Cure::~Cure()
     
 }
 
-Cure*	Cure::clone() const
+AMateria*	Cure::clone() const
 {
 	return (new Cure());
 }

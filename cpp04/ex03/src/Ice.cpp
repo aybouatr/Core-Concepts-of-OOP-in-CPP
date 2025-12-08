@@ -24,10 +24,10 @@ Ice::~Ice()
 {
 }
 
-Ice*	Ice::clone() const
+AMateria*	Ice::clone() const
 {
 	Ice* ptr = new Ice();
-	_Save_ptr(ptr);
+	// _Save_ptr(ptr);
 	return (ptr);
 }
 

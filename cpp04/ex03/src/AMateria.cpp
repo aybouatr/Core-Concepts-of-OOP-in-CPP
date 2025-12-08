@@ -11,18 +11,19 @@ AMateria::AMateria(const std::string &type)
 
 AMateria::AMateria(const AMateria &src)
 {
-	this->type = src._type;
+	this->type = src.type;
 }
 
 AMateria& AMateria::operator=(const AMateria &src)
 {
 	if (this != &src)
-		type = src._type;
+		type = src.type;
 	return (*this);
 }
 
 AMateria::~AMateria()
 {
+
 }
 
 const std::string& AMateria::getType() const

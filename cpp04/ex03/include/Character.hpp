@@ -1,9 +1,11 @@
 #pragma once
 
 #include "ICharacter.hpp"
-#include "Materia"
+#include "AMateria.hpp"
+
 
 #define NUMBER_MATERIA 4
+
 
 class Character : public ICharacter
 {
@@ -13,10 +15,10 @@ class Character : public ICharacter
         AMateria*	_inventory[NUMBER_MATERIA];
 	
 	protected:
-		AMateria *Save;
-		int index_gc;
-		int size_gc;
-		void _memoryCollector(AMateria *materia);
+		AMateria *Save[NUMBER_MATERIA];
+		void MemoryCollector(AMateria *materia);
+		void Delete_gc();
+		bool Not_double(AMateria* materia);
 
     public:
 		Character();
@@ -34,9 +36,4 @@ class Character : public ICharacter
 
 };
 
-void Character::_memoryCollector(AMateria *materia)
-{
-
-
-}
 

@@ -5,6 +5,8 @@
 #include "Character.hpp"
 
 
+class	IMateriaSource;
+
 class	MateriaSource : virtual public IMateriaSource
 {
 	public:

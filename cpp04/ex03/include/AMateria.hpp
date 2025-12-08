@@ -2,6 +2,11 @@
 
 
 #include <iostream>
+#include "ICharacter.hpp"
+
+
+class	ICharacter;
+
 
 class AMateria
 {
@@ -10,32 +15,14 @@ protected:
 
 public:
 
-    AMateria(std::string const & type);
-    std::string const & getType() const;
-    virtual AMateria* clone() const = 0;
-    virtual void use(ICharacter& target);
+        AMateria();
+		AMateria(const std::string &type);
+		AMateria(const AMateria &src);
+		AMateria& operator=(const AMateria &src);
+		virtual ~AMateria();
+		const std::string &getType() const;
+		virtual AMateria* clone() const = 0;
+		virtual void use(ICharacter &target);
 
 };
-
-std::string const & getType() const
-{
-    return (type);
-}
-
-AMateria::AMateria(std::string const &type)
-{
-    this.type = type;
-}
-
-AMateria::AMateria(const AMateria &src)
-{
-	type = src.type;
-}
-
-AMateria& AMateria::operator=(const AMateria &src)
-{
-	if (this != &src)
-		type = src.type;
-	return (*this);
-}
 
