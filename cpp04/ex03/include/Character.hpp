@@ -4,7 +4,7 @@
 #include "AMateria.hpp"
 
 
-#define NUMBER_MATERIA 4
+#define NUMBER_MATERIA 1024
 
 
 class Character : public ICharacter
@@ -12,13 +12,14 @@ class Character : public ICharacter
 
     private:
         std::string	_name;
-        AMateria*	_inventory[NUMBER_MATERIA];
+        AMateria*	_inventory[4];
 	
 	protected:
 		AMateria *Save[NUMBER_MATERIA];
 		void MemoryCollector(AMateria *materia);
 		void Delete_gc();
 		bool Not_double(AMateria* materia);
+
 
     public:
 		Character();

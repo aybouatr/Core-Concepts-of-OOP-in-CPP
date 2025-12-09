@@ -9,6 +9,12 @@ class	IMateriaSource;
 
 class	MateriaSource : virtual public IMateriaSource
 {
+	protected:
+		AMateria *Save[NUMBER_MATERIA];
+		void MemoryCollector(AMateria *materia);
+		void Delete_gc();
+		bool Not_double(AMateria* materia);
+	
 	public:
 		MateriaSource();
 		MateriaSource(const MateriaSource &src);
@@ -19,6 +25,6 @@ class	MateriaSource : virtual public IMateriaSource
 		AMateria* createMateria(const std::string &type);
 	
 	private:
-		AMateria*	_table[NUMBER_MATERIA];
+		AMateria*	_table[4];
 
 };
