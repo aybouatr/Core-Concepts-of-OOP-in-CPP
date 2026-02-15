@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   bsp.cpp                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aybouatr <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/11/25 11:55:17 by aybouatr          #+#    #+#             */
+/*   Updated: 2025/11/25 11:55:19 by aybouatr         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../include/Point.hpp"
 
-
+// geometric way to tell which side of a line a point is on.
 static Fixed sign(Point const &p1, Point const &p2, Point const &p3)
 {
     return (p1.getX() - p3.getX()) * (p2.getY() - p3.getY())
@@ -16,8 +28,6 @@ bool bsp(Point const a, Point const b, Point const c, Point const point)
     bool hasNeg = (d1 < 0) || (d2 < 0) || (d3 < 0);
     bool hasPos = (d1 > 0) || (d2 > 0) || (d3 > 0);
 
-    // If signs are mixed -> inside.  
-    // If any are 0 → point is on a line → return false.
     if (d1 == 0 || d2 == 0 || d3 == 0)
         return false;
 

@@ -40,24 +40,19 @@ class Fixed
 		bool operator>=(const Fixed& other);
 		
 		float operator+(const Fixed& other);
-		// int operator+(const Fixed& other);
-
 		float operator-(const Fixed& other);
-		// int operator-(const Fixed& other);
-
 		float operator*(const Fixed& other);
-		// int operator*(const Fixed& other);
-
 		float operator/(const Fixed& other);
-		// int operator/(const Fixed& other);
-
 		Fixed operator++();
 		Fixed operator--();
-		// post-increment Operators	
 		Fixed operator++(int);
 		Fixed operator--(int);
-		static Fixed& max(Fixed& First,Fixed& second);
-    	static const Fixed& max(const Fixed& a, const Fixed& b);
+		static Fixed& max(Fixed& First, Fixed& second);
+		static const Fixed& max(const Fixed& First, const Fixed& second);
+
+		static Fixed& min(Fixed& First, Fixed& second);
+		static const Fixed& min(const Fixed& First, const Fixed& second);
+
 		~Fixed();
 		float toFloat(void)const;
 		int toInt(void)const;

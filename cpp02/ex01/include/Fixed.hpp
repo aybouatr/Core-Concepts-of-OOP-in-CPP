@@ -26,6 +26,7 @@ class Fixed
 	 	static const int _fract_bits;
 
 	public:
+
 		Fixed();
 		Fixed(const int input);
 		Fixed(const float input);

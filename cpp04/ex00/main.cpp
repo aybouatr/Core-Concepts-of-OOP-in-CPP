@@ -10,6 +10,7 @@
 int main()
 {
     std::cout << "--------------------- correct Way ---------------------\n\n" ;
+    
     const Animal* meta = new Animal();
     const Animal* j = new Dog();
     const Animal* i = new Cat();

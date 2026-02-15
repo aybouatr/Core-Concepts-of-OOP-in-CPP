@@ -1,5 +1,5 @@
 C++ = c++
-C++_FLAGS = -Wall -Wextra -Werror 
+C++_FLAGS = -Wall -Wextra -Werror -std=c++98
 
 INFILES = 	main.cpp src/ClapTrap.cpp src/ScavTrap.cpp
 

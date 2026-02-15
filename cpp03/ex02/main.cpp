@@ -10,23 +10,16 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "include/ClapTrap.hpp"
+#include "include/FragTrap.hpp"
 
 int main()
 {
-    ClapTrap a("Jack");
-    ClapTrap b("Tom");
 
-    a.attack("Tom");
+   FragTrap B("ali");
 
-    b.takeDamage();
-
-    a.beRepaired(5);
-
-    for (int i = 0; i < 11; i++)
-        a.attack("Tom");
-
-    b.takeDamage(20);
+    B.takeDamage(21);
+    B.attack("mohammed");
+    B.highFivesGuys();
 
     return 0;
 }

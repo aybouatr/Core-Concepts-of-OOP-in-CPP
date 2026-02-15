@@ -7,7 +7,6 @@ class Brain
 {
 private :
 
-    int nbrIdeas;
     std::string ideas[100];
 
 public:

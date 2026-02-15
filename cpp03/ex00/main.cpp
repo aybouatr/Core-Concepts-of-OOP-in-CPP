@@ -18,12 +18,8 @@ int main()
     ClapTrap b("Tom");
 
     a.attack("Tom");
-    b.takeDamage(2);
-
+    b.takeDamage(20);
     a.beRepaired(5);
-
-    for (int i = 0; i < 11; i++)
-        a.attack("target");
 
     b.takeDamage(20);
 

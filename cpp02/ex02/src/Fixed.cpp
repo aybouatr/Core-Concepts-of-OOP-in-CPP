@@ -136,17 +136,22 @@ std::ostream	&operator<<(std::ostream &o, Fixed const &fixed)
 	return (o);
 }
 
-
-Fixed& Fixed::max(Fixed& First,Fixed& second)
+Fixed& Fixed::max(Fixed& First, Fixed& second)
 {
-	if (First > second)
-		return First;
-	return (second);
+    return (First > second) ? First : second;
 }
 
-const Fixed& Fixed::max(const Fixed& First,const Fixed& second)
+const Fixed& Fixed::max(const Fixed& First, const Fixed& second)
 {
-	if (First > second)
-		return First;
-	return (second);
+    return (First > second) ? First : second;
+}
+
+Fixed& Fixed::min(Fixed& First, Fixed& second)
+{
+    return (First < second) ? First : second;
+}
+
+const Fixed& Fixed::min(const Fixed& First, const Fixed& second)
+{
+    return (First > second) ? second : First;
 }

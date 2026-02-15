@@ -1,20 +1,28 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aybouatr <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/11/25 11:45:21 by aybouatr          #+#    #+#             */
+/*   Updated: 2025/11/25 11:45:23 by aybouatr         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "include/Point.hpp"
-// #include "src/bsp.cpp"
 #include <iostream>
 
 int main()
 {
-    Point a(0.0f, 0.0f);
-    Point b(4.0f, 0.0f);
-    Point c(2.0f, 4.0f);
+    Point a(4, 2);
+    Point b(1,1);
+    Point c(1,4);
 
-    Point inside(2.0f, 2.0f);
-    Point outside(5.0f, 1.0f);
-    Point edge(2.0f, 0.0f);
-    Point vertex(0.0f, 0.0f);
+    Point inside(2, 2);
+    Point outside(1,3);
+   
 
     std::cout << "Inside: " << bsp(a, b, c, inside) << "\n";
     std::cout << "Outside: " << bsp(a, b, c, outside) << "\n";
-    std::cout << "On edge: " << bsp(a, b, c, edge) << "\n";
-    std::cout << "Vertex: " << bsp(a, b, c, vertex) << "\n";
 }

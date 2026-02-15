@@ -1,7 +1,7 @@
-C++ = c++
-C++_FLAGS = -Wall -Wextra -Werror -std=c++98
+CXX = c++
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 
-INFILES = 	main.cpp src/Fixed.cpp
+INFILES = main.cpp src/Fixed.cpp
 
 OBJFILES = $(INFILES:.cpp=.o)
 
@@ -9,9 +9,8 @@ NAME = Fixed
 
 all: $(NAME)
 
-
-$(NAME):$(OBJFILES)
-	$(C++) $(C++_FLAGS) $(OBJFILES) -o $(NAME) 
+$(NAME): $(OBJFILES)
+	$(CXX) $(CXXFLAGS) $(OBJFILES) -o $(NAME)
 
 clean:
 	rm -f $(OBJFILES)

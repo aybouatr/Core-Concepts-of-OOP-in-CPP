@@ -12,25 +12,23 @@
 
 #include "include/ScavTrap.hpp"
 #include "include/ClapTrap.hpp"
-#include <iostream>
 
 
 
 int main()
 {
    
-    ClapTrap * Sv = new ScavTrap;
+    ClapTrap Sv("salim");
 
     
-    Sv->attack("ali");
+    Sv.attack("ali");
+    Sv.takeDamage(2);
+    Sv.attack("ayoub");
+    Sv.attack("ali");
 
-    Sv->attack("ayoub");
-    Sv->attack("ali");
+    Sv.attack("ayoub");
+    Sv.attack("ali");
 
-    Sv->attack("ayoub");
-    Sv->attack("ali");
-
-    delete Sv;
 
     return 0;
 }
