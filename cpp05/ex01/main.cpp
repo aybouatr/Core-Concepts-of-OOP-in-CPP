@@ -68,7 +68,7 @@ int main(void)
 
     try 
     {
-        tim.decreamentGrade(); // will throw at 150
+        tim.decreamentGrade();
     }
     catch (const std::exception &e)
     {

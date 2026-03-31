@@ -1,0 +1,94 @@
+Implicit Type Casting (Automatic) : This happens automatically by the computer
+
+------ int a = 5;
+------ double b = a;  // int → double (automatic)
+------ 
+------ cout << b;  // Output: 5.0
+
+Explicit Type Casting (Manual) : This happens when you write the conversion yourself
+
+--- double x = 5.7;
+--- int y = (int)x;  // manual conversion
+--- 
+--- cout << y;  // Output: 5
+
+------------------ Types of Casting in C++ --------------------
+
+1 ) Static Cast
+2 ) Dynamic Cast
+3 ) Const Cast
+4 ) Reinterpret Cast
+
+=========> Static Cast :
+
+example1 :
+
+int a = 10;
+double b = static_cast<double>(a);
+cout << b;  // 10.0
+
+example2 :
+
+class Base {};
+class Derived : public Base {};
+
+Derived d;
+Base* b = static_cast<Base*>(&d);  // OK
+
+=============> dynamic_cast 
+
+example 1 :
+
+#include <iostream>
+using namespace std;
+
+class Base {
+public:
+    virtual void show() {}
+};
+
+class Derived : public Base {};
+
+int main()
+{
+    Base* b = new Derived();
+
+    Derived* d = dynamic_cast<Derived*>(b);
+
+    if (d != nullptr) {
+        cout << "Cast successful";
+    } else {
+        cout << "Cast failed";
+    }
+}
+
+===============> const_cast
+
+👉 Used to add or remove const
+
+
+const int x = 10;
+
+int* y = const_cast<int*>(&x);
+*y = 20;
+
+cout << x;  // ⚠️ undefined behavior (danger!)
+
+void print(int* p) {
+    cout << *p;
+}
+
+int main() {
+    const int x = 5;
+    print(const_cast<int*>(&x));
+}
+
+
+
+===============================> 🔁 Simple Summary <==================================
+= 
+= Cast	                Use	                     Safety
+= static_cast	        normal conversion	     ✅ Safe
+= dynamic_cast	        inheritance check	     ✅ Very safe
+= const_cast	        remove/add const	     ⚠️ Careful
+= reinterpret_cast	    low-level memory	      ❌ Risky
