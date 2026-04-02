@@ -3,49 +3,6 @@
 #include "include/Bureaucrat.hpp"
 
 
-class test
-{
-private:
-    
-    int age;
-
-public:
-
-    test(int age)
-    {
-        if (age > 55)
-            throw heightAge();
-        if (age < 10)
-            throw LowAge();
-        this->age = age;
-    }
-
-    int getAge()
-    {
-        return age;
-    }
-
-    class heightAge : public std::exception
-    {
-        virtual const char* what() const throw ()
-        {
-            return ("this is very height he should die ");
-        }
-    };
-
-    class LowAge : public std::exception
-    {
-        virtual const char* what() const throw () 
-        {
-            return ("this is very law he should go shool ");
-        }
-    };
-
-};
-
-
-
-
 
 int main(void)
 {
@@ -54,7 +11,7 @@ int main(void)
     std::cout << "\033[33m" << std::endl << "Test too high and too low creation" << "\033[0m" << std::endl;
     try
     {
-        Bureaucrat Sleeper1(1500, "Bernd");   // grade first, name second
+        Bureaucrat Sleeper1(1500, "Bernd");
     }
     catch(const std::exception &e)
     {
@@ -63,7 +20,7 @@ int main(void)
 
     try
     {
-        Bureaucrat Sleeper2(-10, "Olaf");    // grade first, name second
+        Bureaucrat Sleeper2(-10, "Olaf"); 
     }
     catch(const std::exception &e)
     {
@@ -76,7 +33,7 @@ int main(void)
 
     try
     {
-        bob.increamentGrade();   // your spelling
+        bob.increamentGrade();  
     }
     catch(const std::exception& e)
     {
