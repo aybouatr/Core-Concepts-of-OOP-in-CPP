@@ -11,7 +11,7 @@ private:
 
     const std::string _name;
     int _grade;
-   void _checkRange(int n);
+    void _checkRange(int n);
 
 public:
 
