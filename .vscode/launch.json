@@ -1,0 +1,25 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "scalar_converter",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/cpp06/ex00/scalar_converter",
+            "args": ["42"],
+            "stopAtEntry": true,
+            "cwd": "${workspaceFolder}",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+                
+            ], "preLaunchTask": "scalar_converter"
+        }
+    ]
+}

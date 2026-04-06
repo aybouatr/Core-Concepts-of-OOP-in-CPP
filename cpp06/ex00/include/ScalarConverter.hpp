@@ -5,6 +5,7 @@
 
 class ScalarConverter
 {
+private:
     enum eDataType
     {
         Int,
@@ -18,25 +19,30 @@ class ScalarConverter
         NanDouble,
         NanFloat,
         NOTFOUND
-    }; 
-    eDataType GetType(const std::string str) const;
-    void ConvertToChar(const std::string str, eDataType type) const;
-    void ConvertToInt(const std::string str, eDataType type) const;
-    void ConvertToFloat(const std::string str, eDataType type) const;
-    void ConvertToDouble(const std::string str, eDataType type) const;
+    };
+    
+    static eDataType GetType(const std::string str);
+    static void ConvertToChar(const std::string str, eDataType type);
+    static void ConvertToInt(const std::string str, eDataType type);
+    static void ConvertToFloat(const std::string str, eDataType type);
+    static void ConvertToDouble(const std::string str, eDataType type);
+    static bool checkIsInfinity(const std::string str);
+    static eDataType GetSpecifiqueInfinity(const std::string str);
+    static bool checkISChar(const std::string str);
+    static bool checkIsInt(const std::string str);
+    static bool checkIsFloat(const std::string str);
+    static bool checkIsDouble(const std::string str);
+    static bool printInfinityDouble(const std::string str);
+    static bool printInfinityFloat(const std::string str);
+
 
 public:
 
     ScalarConverter();
     ScalarConverter(const ScalarConverter &other);
     ScalarConverter &operator=(const ScalarConverter &other);
-    static void Convert(std::string literal);
-    ScalarConverter::eDataType  ScalarConverter::GetType(const std::string str) const;
     ~ScalarConverter();
-    
-
     static void Convert(std::string literal);
-
 };
 
 

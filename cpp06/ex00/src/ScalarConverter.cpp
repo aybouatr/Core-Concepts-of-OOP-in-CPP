@@ -1,4 +1,8 @@
 #include "../include/ScalarConverter.hpp"
+#include <cstdlib>
+#include <cctype>
+#include <climits>
+#include <limits>
 
 ScalarConverter::ScalarConverter()
 {
@@ -35,7 +39,7 @@ bool ScalarConverter::checkIsInfinity(const std::string str)
     return false;
 }
 
-ScalarConverter::eDataType ScalarConverter::GetSpecifiqueInfinity(const std::string str) const
+ScalarConverter::eDataType ScalarConverter::GetSpecifiqueInfinity(const std::string str)
 {
     if (str == "+inf")
         return InfinPlusDouble;
@@ -59,9 +63,13 @@ bool ScalarConverter::checkISChar(const std::string str)
 
 bool ScalarConverter::checkIsInt(const std::string str)
 {
+    if (str.empty())
+        return false;
     int i = 0;
     if (str[i] == '-' || str[i] == '+')
         i++;
+    if (i == static_cast<int>(str.length()))
+        return false;
     for (; str[i]; i++)
     {
         if (!std::isdigit(str[i]))
@@ -72,6 +80,8 @@ bool ScalarConverter::checkIsInt(const std::string str)
 
 bool ScalarConverter::checkIsFloat(const std::string str)
 {
+    if (str.empty())
+        return false;
     int i = 0;
     bool dotFound = false;
 
@@ -90,11 +100,13 @@ bool ScalarConverter::checkIsFloat(const std::string str)
             return false;
 
     }
-    return (str.back() == 'f');
+    return (str[str.length() - 1] == 'f');
 }
 
 bool ScalarConverter::checkIsDouble(const std::string str)
 {
+    if (str.empty())
+        return false;
     int i = 0;
     bool dotFound = false;
 
@@ -116,15 +128,13 @@ bool ScalarConverter::checkIsDouble(const std::string str)
     return true;
 }
 
-ScalarConverter::eDataType  ScalarConverter::GetType(const std::string str) const
+ScalarConverter::eDataType  ScalarConverter::GetType(const std::string str)
 {
     int len = str.length();
 
       if (len == 0)
         return NOTFOUND;
 
-    if (str == "+inf" || str == "-inf" || str == "+inff" || str == "-inff" || str == "nan" || str == "nanf")
-        return ;
     if (checkIsInfinity(str))
         return GetSpecifiqueInfinity(str);
     if (checkISChar(str))
@@ -139,7 +149,7 @@ ScalarConverter::eDataType  ScalarConverter::GetType(const std::string str) cons
 
 }
 
-void ScalarConverter::ConvertToChar(const std::string str, eDataType type) const
+void ScalarConverter::ConvertToChar(const std::string str, eDataType type)
 {
    
     if (type == NOTFOUND ||  type == InfinMoinsDouble || type == InfinPlusDouble || type == InfinMoinsFloat || type == InfinPlusFloat || type == NanDouble || type == NanFloat)
@@ -151,11 +161,11 @@ void ScalarConverter::ConvertToChar(const std::string str, eDataType type) const
     if (type == Char)
     {         
         char c = str[0];
-        std::cout << "char: '" << c << "'" << std::endl;
+        std::cout << "char:'" << c << "'" << std::endl;
     }
     else
     {
-        int i = std::stoi(str);
+        int i = std::atoi(str.c_str());
         if (i < 0 || i > 127)
         {
             std::cout << "char: impossible" << std::endl;
@@ -167,23 +177,141 @@ void ScalarConverter::ConvertToChar(const std::string str, eDataType type) const
         else
             std::cout << "char: Non displayable" << std::endl;
     }
+
 }
 
-void ScalarConverter::ConvertToInt(const std::string str, eDataType type) const
+void ScalarConverter::ConvertToInt(const std::string str, eDataType type)
 {
-    // Implementation of conversion to int based on the type
+   if (type == NOTFOUND ||  type == InfinMoinsDouble || type == InfinPlusDouble || type == InfinMoinsFloat || type == InfinPlusFloat || type == NanDouble || type == NanFloat)
+    {
+        std::cout << "int : impossible" << std::endl;
+        return;
+    }
+
+    if (type == Int)
+    {
+        std::cout << "int: " << str << std::endl;
+        return;
+    }
+    else if (type == Char)
+    {
+        char c = str[0];
+        std::cout << "int: " << static_cast<int>(c) << std::endl;
+    }
+    else
+    {
+        double d = std::atof(str.c_str());
+        if (d < static_cast<double>(INT_MIN) || d > static_cast<double>(INT_MAX))
+        {
+            std::cout << "int: impossible" << std::endl;
+            return;
+        }
+        std::cout << "int: " << static_cast<int>(d) << std::endl;
+    }
+
+
+
 }
 
-void ScalarConverter::ConvertToFloat(const std::string str, eDataType type) const
+bool ScalarConverter::printInfinityFloat(const std::string str)
 {
-    // Implementation of conversion to float based on the type
+    if (str == "+inff")
+    {
+        std::cout << "float: +inff" << std::endl;
+        return true;
+    }
+    if (str == "-inff")
+    {
+        std::cout << "float: -inff" << std::endl;
+        return true;
+    }
+    if (str == "nanf")
+    {
+        std::cout << "float: nanf" << std::endl;
+        return true;
+    }
+    return false;
 }
 
-void ScalarConverter::ConvertToDouble(const std::string str, eDataType type) const
+void ScalarConverter::ConvertToFloat(const std::string str, eDataType type)
 {
-    // Implementation of conversion to double based on the type
+    if (type == NOTFOUND ||  type == InfinMoinsDouble || type == InfinPlusDouble || type == NanDouble)
+    {
+        std::cout << "float: impossible" << std::endl;
+        return;
+    }
+     if (type == InfinMoinsFloat)
+    {
+        return;
+    }
+    if (type == Float)
+    {
+        std::cout << "float: " << str << std::endl;
+        return;
+    }
+    else if (type == Char)
+    {
+        char c = str[0];
+        std::cout << "float: " << static_cast<float>(c) << "f" << std::endl;
+    }
+    else
+    {
+        double d = std::atof(str.c_str());
+        if (d < -std::numeric_limits<float>::max() || d > std::numeric_limits<float>::max())
+        {
+            std::cout << "float: impossible" << std::endl;
+            return;
+        }
+        std::cout << "float: " << static_cast<float>(d) << ".f" << std::endl;
+    }
 }
 
+bool ScalarConverter::printInfinityDouble(const std::string str)
+{
+    if (str == "+inff")
+    {
+        std::cout << "double: +inf" << std::endl;
+        return true;
+    }
+    if (str == "-inf" )
+    {
+        std::cout << "double: -inf" << std::endl;
+        return true;
+    }
+    if (str == "nan")
+    {
+        std::cout << "double: nan" << std::endl;
+        return true;
+    }
+    return false;
+}
+
+void ScalarConverter::ConvertToDouble(const std::string str, eDataType type)
+{
+
+    if (type == NOTFOUND ||  type == InfinMoinsFloat || type == InfinPlusFloat || type == NanFloat)
+    {
+        std::cout << "double: impossible" << std::endl;
+        return;
+    }
+    if (printInfinityDouble(str))
+        return;
+    if (type == Double)
+    {
+        std::cout << "double: " << str << std::endl;
+        return;
+    }
+    else if (type == Char)
+    {
+        char c = str[0];
+        std::cout << "double: " << static_cast<double>(c) << std::endl;
+    }
+    else
+    {
+        double d = std::atof(str.c_str());
+        std::cout << "double: " << d << std::endl;
+    }
+}
 
 
 void ScalarConverter::Convert(std::string literal)

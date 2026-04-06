@@ -46,22 +46,14 @@ using namespace std;
 // const_cast<new_type>(expression);
 // reinterpret_cast<new_type>(expression);
 
-int main() 
+#include <iostream>
+#include <climits>  // INT_MAX
+#include <cfloat>   // FLT_MAX
+
+int main()
 {
+    std::cout << "Max int: " << INT_MAX << std::endl;
+    std::cout << "Max float: " << FLT_MAX << std::endl;
 
-    //128 = 64 32 16 8 4 2 1 = 255 ==>
-    // 45 = 0  32  0 8 4 0 1      ===>
-
-    long num = 510;
-
-    short shortNum = static_cast<short>(num);
-
-    cout << "Short num: " << shortNum << " size: " << sizeof(shortNum) << endl;
-
-    for (size_t i = 0; i < sizeof(shortNum); ++i) 
-    {
-        printf("Byte %zu: 0x%02X\n", i, static_cast<unsigned char>(reinterpret_cast<char*>(&shortNum)[i]));
-        
-    }
     return 0;
 }
