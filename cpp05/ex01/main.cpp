@@ -62,7 +62,7 @@ int main(void)
     }
     catch (const std::exception &e)
     {
-        std::cerr << "Exception caught: " << e.what() << std::endl;
+        std::cerr << "Exception : " << e.what() << std::endl;
     }
     std::cout << tim;
 
@@ -72,7 +72,7 @@ int main(void)
     }
     catch (const std::exception &e)
     {
-        std::cerr << "Exception caught: " << e.what() << std::endl;
+        std::cerr << "Exception : " << e.what() << std::endl;
     }
     std::cout << tim;
 
@@ -80,31 +80,32 @@ int main(void)
     std::cout << "\033[33m\nTest ex01 (Form signing)\033[0m" << std::endl;
 
       Form id_form("formBirth", 50, 90);
-        Bureaucrat mr_slow("slaveProMax", 1);
-        Bureaucrat mr_id("camerawayway", 100);
-
-        std::cout << id_form;
-
-        try
-        {
+      Bureaucrat mr_id("ali", 100);
+      Bureaucrat mr_slow("slave", 1);
+      
+      std::cout << id_form << std::endl;
+      
+      try
+      {
+          
             mr_slow.signForm(id_form);  
         }
         catch (const std::exception &e)
         {
-            std::cerr << "Exception caught: " << e.what() << std::endl;
+            std::cerr << "Exception : " << e.what() << std::endl;
         }
-        std::cout << id_form;
+        std::cout << id_form << std::endl;
 
         try
         {
             mr_id.signForm(id_form); 
-            id_form.
+            
         }
         catch (const std::exception &e)
         {
-            std::cerr << "Exception caught: " << e.what() << std::endl;
+            std::cerr << "Exception : " << e.what() << std::endl;
         }
-        std::cout << id_form;
+        std::cout << id_form << std::endl;
    
     
     return 0;

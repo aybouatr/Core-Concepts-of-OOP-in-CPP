@@ -16,6 +16,9 @@ private:
 public:
 
     Bureaucrat();
+    Bureaucrat(const Bureaucrat &other);
+    Bureaucrat &operator=(const Bureaucrat &other);
+    ~Bureaucrat();
     Bureaucrat(int grade,std::string name);
     const std::string getName();
     int getGrade() ;

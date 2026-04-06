@@ -8,9 +8,26 @@ Bureaucrat::Bureaucrat() :_name("Default") , _grade(150)
     
 }
 
+Bureaucrat::Bureaucrat(const Bureaucrat &other) : _name(other._name), _grade(other._grade)
+{
+
+}
+
+Bureaucrat &Bureaucrat::operator=(const Bureaucrat &other)
+{
+    if (this != &other)
+        _grade = other._grade;
+    return (*this);
+}
+
+Bureaucrat::~Bureaucrat()
+{
+
+}
+
 Bureaucrat::Bureaucrat( std::string name,int grade) : _name(name) , _grade(150)
 {
-    if (grade > 149)
+    if (grade > 150)
         throw Bureaucrat::GradeTooLowException();
     if(grade < 1)
         throw Bureaucrat::GradeTooHighException();
@@ -54,7 +71,6 @@ void Bureaucrat::signForm(Form &f)
                   << " because " << e.what() << std::endl;
     }
 }
-
 
 std::ostream &operator<<(std::ostream &os,Bureaucrat  &other)
 {

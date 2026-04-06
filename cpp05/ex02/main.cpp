@@ -1,112 +1,33 @@
-#include <exception>
 #include "include/Bureaucrat.hpp"
-#include "include/Form.hpp"
+#include "include/ShrubberyCreationForm.hpp"
+#include "include/RobotomyRequestForm.hpp"
+#include "include/PresidentialPardonForm.hpp"
 
-int main(void)
+int main()
 {
-    std::cout << "\033[33m\nTest ex01\033[0m" << std::endl;
-
-    std::cout << "\033[33m\nTest too high and too low creation\033[0m" << std::endl;
-
-    try 
-    {
-        Bureaucrat Sleeper1("Bernd", 1500);
-    }
-    catch (const std::exception &e) 
-    {
-        std::cerr << "Exception caught: " << e.what() << std::endl;
-    }
-
-    try 
-    {
-        Bureaucrat Sleeper2("Olaf", -10);
-    }
-    catch (const std::exception &e)
-    {
-        std::cerr << "Exception caught: " << e.what() << std::endl;
-    }
-
-    std::cout << "\033[33m\nTest increasing\033[0m" << std::endl;
-
-    Bureaucrat bob("Bob", 2);
-    std::cout << bob;
-
     try
     {
-        bob.increamentGrade();
+        Bureaucrat boss("Boss", 1);
+
+        ShrubberyCreationForm s("home");
+        RobotomyRequestForm r("Bender");
+        PresidentialPardonForm p("Alice");
+
+        boss.signForm(s);
+        boss.executeForm(s);
+
+        boss.signForm(r);
+        boss.executeForm(r);
+
+        boss.signForm(p);
+        boss.executeForm(p);
     }
-    catch (const std::exception &e)
+    catch(const std::exception& e)
     {
-        std::cerr << "Exception caught: " << e.what() << std::endl;
+        std::cout << e.what() << '\n';
     }
-    std::cout << bob;
-
-    try
-    {
-        bob.increamentGrade();
-    }
-    catch (const std::exception &e) 
-    {
-        std::cerr << "Exception caught: " << e.what() << std::endl;
-    }
-    std::cout << bob;
-
-    std::cout << "\033[33m\nTest decreasing\033[0m" << std::endl;
-
-    Bureaucrat tim("Tim", 149);
-    std::cout << tim;
-
-    try 
-    {
-        tim.decreamentGrade();
-    }
-    catch (const std::exception &e)
-    {
-        std::cerr << "Exception caught: " << e.what() << std::endl;
-    }
-    std::cout << tim;
-
-    try 
-    {
-        tim.decreamentGrade(); 
-    }
-    catch (const std::exception &e)
-    {
-        std::cerr << "Exception caught: " << e.what() << std::endl;
-    }
-    std::cout << tim;
-
-
-    std::cout << "\033[33m\nTest ex01 (Form signing)\033[0m" << std::endl;
-
-      Form id_form("formBirth", 50, 90);
-        Bureaucrat mr_slow("slaveProMax", 1);
-        Bureaucrat mr_id("camerawayway", 100);
-
-        std::cout << id_form;
-
-        try
-        {
-            mr_slow.signForm(id_form);  
-        }
-        catch (const std::exception &e)
-        {
-            std::cerr << "Exception caught: " << e.what() << std::endl;
-        }
-        std::cout << id_form;
-
-        try
-        {
-            mr_id.signForm(id_form); 
-            id_form.
-        }
-        catch (const std::exception &e)
-        {
-            std::cerr << "Exception caught: " << e.what() << std::endl;
-        }
-        std::cout << id_form;
-   
     
-    return 0;
+    
 
+    return 0;
 }

@@ -5,11 +5,12 @@ INFILES = 	main.cpp \
 			src/RobotomyRequestForm.cpp\
 			src/PresidentialPardonForm.cpp\
 			src/Bureaucrat.cpp \
-			src/AForm.cpp
+			src/Intern.cpp \
+			src/AForm.cpp 
 
 OBJFILES = $(INFILES:.cpp=.o)
 
-NAME = form
+NAME = Intern
 
 all: $(NAME)
 
@@ -27,4 +28,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re  

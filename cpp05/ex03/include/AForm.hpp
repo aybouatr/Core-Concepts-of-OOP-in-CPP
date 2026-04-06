@@ -19,12 +19,12 @@ public:
     AForm(const std::string name,const int gradeSign, const int gradeExecute);
     AForm(const AForm& Aform);
     AForm &operator=(const AForm& form);
-    ~AForm();
+    virtual ~AForm();
 
     const std::string &getName() const; 
     bool isSigned() const;  
     int getGradeSign() const;  
-    int getGradeExecute() const;  
+    int getGradeExecute() const;
 
     void beSigned(const Bureaucrat& salve);
     
