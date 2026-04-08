@@ -1,7 +1,7 @@
-NAME = scalar_converter
+NAME = Serializer
 CXX = c++
 CXX_FLAGS = -Wall -Wextra -Werror -std=c++98
-INFILES = main.cpp src/ScalarConverter.cpp
+INFILES = main.cpp src/Serializer.cpp
 OBJFILES = $(INFILES:.cpp=.o)
 
 all: $(NAME)

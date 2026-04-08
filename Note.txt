@@ -92,3 +92,17 @@ int main() {
 = dynamic_cast	        inheritance check	     ✅ Very safe
 = const_cast	        remove/add const	     ⚠️ Careful
 = reinterpret_cast	    low-level memory	      ❌ Risky
+
+
+
+
+What I fixed
+
+Parsing/output: completed ScalarConverter conversions for char, int, float, and double.
+C++98 compatibility: kept it -std=c++98 friendly and removed reliance on newer behavior.
+Formatting: improved float/double printing so whole numbers show .0 / .0f, and special values are handled properly.
+Validation: make -C /home/aybouatr/currentProject/cpp06/ex00 clean && make now passes.
+Review notes
+
+Good: class is static-style as expected for this exercise, and the build is clean.
+Watch out: the parser is still a bit custom/verbose; if you want, I can simplify it further and make the validation more strict/clean.
