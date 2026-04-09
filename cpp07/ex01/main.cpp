@@ -7,6 +7,7 @@
 
 
 template <typename T>
+
 void print(const T& x)
 {
     std::cout << x << " ";

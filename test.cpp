@@ -11,10 +11,25 @@
 int main()
 {
     
+    int i = 13;
+    int j = 0;
 
-
-    std::cout << res << std::endl;
+    while (j < 8)
+    {
+            int res = i & 128;
+    
+            if (res == 0)
+                std::cout << "0";
+            else
+                std::cout << "1" ;
+            i = i << 1;
+            j++;
+            res = i & 1;
+    }
+    
+        
 }
+   
 
 
 

@@ -22,6 +22,8 @@ namespace whatever
     {
         return (b > a ? b : a);
     }
+
 }
+
 
 #endif
