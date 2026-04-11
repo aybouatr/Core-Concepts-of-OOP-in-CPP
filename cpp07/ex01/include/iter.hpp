@@ -12,7 +12,7 @@ namespace iter
     {
         for (size_t i = 0; i < length; ++i)
         {
-            func(array[i]);
+            func(array[i]); 
         }
 
     }

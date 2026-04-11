@@ -3,6 +3,11 @@
 
 
 
+#include <algorithm>
+#include <vector>
+#include <list>
+#include <climits>  // for INT_MAX
+#include <cfloat>   // for FLT_MAX
 
 
 
@@ -11,21 +16,12 @@
 int main()
 {
     
-    int i = 13;
-    int j = 0;
+    std::vector<int> vData;
 
-    while (j < 8)
-    {
-            int res = i & 128;
-    
-            if (res == 0)
-                std::cout << "0";
-            else
-                std::cout << "1" ;
-            i = i << 1;
-            j++;
-            res = i & 1;
-    }
+    vData.push_back(INT_MIN);
+
+
+    std::cout << vData.at(0) << std::endl;
     
         
 }

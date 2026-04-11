@@ -1,6 +1,7 @@
 #include "include/Array.hpp"
 #include <cstdlib>
 #include <ctime>
+#include <iostream>
 
 
 #define MAX_VAL 5
@@ -35,7 +36,7 @@ int main(int, char**)
     }
     try
     {
-        numbers[2] = 0;
+        numbers[-20] = 0;
     }
     catch(const std::exception& e)
     {
@@ -43,7 +44,7 @@ int main(int, char**)
     }
     try
     {
-        numbers[MAX_VAL - 1] = 0;
+        numbers[MAX_VAL] = 0;
     }
     catch(const std::exception& e)
     {
@@ -52,13 +53,15 @@ int main(int, char**)
 
     for (int i = 0; i < MAX_VAL; i++)
     {
-        numbers[i] = rand();
+        numbers[i] = i;
     }
 
     for (int i = 0; i < MAX_VAL; i++)
     {
         std::cout << numbers[i] << " ";
     }
-    delete [] mirror;//
+
+    delete [] mirror;
+
     return 0;
 }
