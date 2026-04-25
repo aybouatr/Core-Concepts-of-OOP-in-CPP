@@ -1,15 +1,17 @@
-NAME = MutantStack
+NAME = btc
 CXX = c++
 CXX_FLAGS = -Wall -Wextra -Werror -std=c++98
-INFILES = main.cpp
+INCLUDES = -Iinclude
+INFILES = main.cpp src/BitcoinExchange.cpp
+
 OBJFILES = $(INFILES:.cpp=.o)
 
 all: $(NAME)
 $(NAME):$(OBJFILES)
-	$(CXX) $(CXX_FLAGS) $(OBJFILES) -o $(NAME)
+	$(CXX) $(CXX_FLAGS) $(INCLUDES) $(OBJFILES) -o $(NAME)
 
 %.o: %.cpp
-	$(CXX) $(CXX_FLAGS) -c $< -o $@
+	$(CXX) $(CXX_FLAGS) $(INCLUDES) -c $< -o $@
 clean:
 	rm -f $(OBJFILES)
 fclean: clean

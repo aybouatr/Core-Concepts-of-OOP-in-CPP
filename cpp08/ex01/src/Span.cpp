@@ -29,7 +29,7 @@ Span::~Span()
 void Span::addNumber(int number)
 {
     if (_numbers.size() >= _maxSize)
-        throw std::runtime_error("Span is full");
+        throw std::runtime_error("Span is full"); 
 
     _numbers.push_back(number);
 }

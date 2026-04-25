@@ -1,0 +1,14 @@
+mergeInsertSort(container):
+
+  if size <= 1: return (already sorted)
+  
+  1. pair elements: (b1,a1), (b2,a2), ... where bi > ai
+
+  2. recursively sort the winners [b1, b2, b3, ...]
+
+  3. build the main chain: start with [a1, b1, b2, b3, ...]
+     (a1 is free because a1 < b1 which is now first in chain)
+  4. generate Jacobsthal insertion order for remaining losers
+  5. for each loser in that order:
+       binary_search in the limited range and insert
+

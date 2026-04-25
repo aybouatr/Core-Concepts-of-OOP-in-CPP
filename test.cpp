@@ -1,29 +1,46 @@
-#include <iostream>
-#include <exception>
-
-
 
 #include <algorithm>
 #include <vector>
 #include <list>
-#include <climits>  // for INT_MAX
-#include <cfloat>   // for FLT_MAX
+#include <climits>  
+#include <cfloat>   
+#include <iostream>
+#include <stack>
 
+template <class T>
+class MyStack : public std::stack<T> 
+{
+    public:
+        auto begin()
+        { 
+            return this->c.begin();
+        }
+        auto end() 
+        { 
+            return this->c.end();
+        }
+};
 
-
+using namespace std;
 
 
 int main()
 {
     
-    std::vector<int> vData;
-
-    vData.push_back(INT_MIN);
+  MyStack<int> _Mystack ;
 
 
-    std::cout << vData.at(0) << std::endl;
-    
-        
+   _Mystack.push(12);
+   _Mystack.push(10);
+   _Mystack.push(9);
+   _Mystack.push(13);
+
+   cout << _Mystack.top() << endl;
+   auto it = _Mystack.begin();
+
+   cout << " begin " << *it <<  endl;
+   cout << " begin " << *(++it) << endl;
+
 }
    
 
