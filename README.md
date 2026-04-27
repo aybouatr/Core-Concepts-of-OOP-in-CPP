@@ -1,4 +1,4 @@
-# 🚀 C++ Programming Modules (cpp00-cpp05)
+# 🚀 C++ Programming Modules (cpp00-cpp09)
 
 <div align="center">
 
@@ -7,9 +7,9 @@
 ![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)
 ![Build](https://img.shields.io/badge/Build-Passing-brightgreen?style=for-the-badge)
 
-**A comprehensive C++ learning path covering fundamental to advanced OOP concepts**
+**A complete C++ learning path (42 curriculum style) from fundamentals to advanced OOP + STL**
 
-[Overview](#-overview) • [Modules](#-modules) • [Installation](#-installation) • [Usage](#-usage) • [Concepts](#-key-concepts)
+[Overview](#-overview) • [Modules](#-modules) • [Installation](#-installation) • [Usage](#-usage) • [Key Concepts](#-key-concepts)
 
 </div>
 
@@ -17,16 +17,19 @@
 
 ## 📖 Overview
 
-This repository contains a progressive series of C++ modules (cpp00 through cpp05) designed to teach Object-Oriented Programming from the ground up. Each module introduces new concepts while building upon previous knowledge, following the **C++98 standard** with strict compilation flags.
+This repository contains a progressive series of C++ modules (**cpp00 → cpp09**) designed to teach Object-Oriented Programming and modern C++ thinking using the **C++98 standard** and strict compilation flags.
+
+Each module introduces new concepts while building upon previous ones: memory management, canonical form, inheritance, polymorphism, exceptions, templates, containers, iterators, algorithms, and real-world problem solving.
 
 ### 🎯 Learning Objectives
 
-- Master **memory management** (stack vs heap allocation)
-- Understand **pointers and references**
-- Implement **operator overloading**
-- Apply **inheritance and polymorphism**
-- Handle **exceptions** properly
-- Write **robust, leak-free C++ code**
+- Master **memory management** (stack vs heap, ownership, deep copy)
+- Learn **OOP pillars** (encapsulation, inheritance, polymorphism)
+- Use **abstract classes** + **interfaces** properly
+- Handle errors using **exceptions**
+- Understand **templates** (generic programming)
+- Become comfortable with **STL containers/iterators/algorithms**
+- Write **robust, leak-free, maintainable C++ code**
 
 ---
 
@@ -34,140 +37,240 @@ This repository contains a progressive series of C++ modules (cpp00 through cpp0
 
 ```
 cpp/
-├── cpp00/          # Introduction to C++, classes, and encapsulation
+├── cpp00/          # Intro: classes, encapsulation, I/O basics
 ├── cpp01/          # Memory allocation, pointers, references, file I/O
-├── cpp02/          # Ad-hoc polymorphism, operator overloading
-├── cpp03/          # Inheritance and constructor chaining
-├── cpp04/          # Subtype polymorphism, virtual functions, abstract classes
-└── cpp05/          # Exception handling and RAII
+├── cpp02/          # Operator overloading, canonical form
+├── cpp03/          # Inheritance, constructor chaining
+├── cpp04/          # Polymorphism, virtual, abstract classes
+├── cpp05/          # Exceptions, RAII, bureaucrat/forms system
+├── cpp06/          # Type conversion, serialization, RTTI
+├── cpp07/          # Templates (functions/classes), generic programming
+├── cpp08/          # STL containers/iterators/algorithms
+└── cpp09/          # Advanced STL + real parsing problems (data processing)
 ```
 
 ---
 
 ## 📚 Modules
 
-### **Module 00: Introduction to C++**
-- Classes and objects
-- Member functions
-- Encapsulation
-- Initialization and namespaces
+## ✅ Module 00: Introduction to C++
+**Goal:** Learn the basics of classes and C++ syntax while staying disciplined.
 
-### **Module 01: Memory & References**
+**Topics covered:**
+- Namespaces, classes, member functions
+- Encapsulation (private/public)
+- `std::cout`, `std::cin`, basic formatting
+- Initialization basics
+
+---
+
+## ✅ Module 01: Memory & References
 <details>
 <summary>Click to expand</summary>
+
+**Goal:** Understand how memory works and how design changes depending on ownership.
 
 **Topics covered:**
 - **Stack vs Heap allocation** (`new` / `delete`)
-- **Pointers vs References** (when to use each)
+- **Pointers vs References**
 - **Dynamic arrays** (`new[]` / `delete[]`)
-- **File I/O** with `std::ifstream` and `std::ofstream`
-- **Member function pointers** for callback patterns
+- **File I/O** (`std::ifstream`, `std::ofstream`)
+- Member function pointers (callbacks-style patterns)
 
-**Key exercises:**
-- `ex00`: BraiiiiiiinnnzzzZ (stack vs heap zombies)
-- `ex01`: Zombie horde (dynamic array allocation)
-- `ex02`: Pointers and references
-- `ex03`: HumanA vs HumanB (reference vs pointer design)
-- `ex04`: File replace utility
-- `ex05-06`: Harl complaint system (function pointers)
+**Typical exercises:**
+- Zombies (stack/heap)
+- Zombie Horde (arrays)
+- HumanA vs HumanB (reference vs pointer)
+- Replace tool (file parsing)
 
 </details>
 
-### **Module 02: Operator Overloading**
+---
+
+## ✅ Module 02: Operator Overloading
 <details>
 <summary>Click to expand</summary>
 
+**Goal:** Write classes that behave like real C++ types.
+
 **Topics covered:**
-- Orthodox Canonical Form
-- Operator overloading (arithmetic, comparison, I/O)
-- Fixed-point number implementation
-- Copy constructor and assignment operator
+- **Orthodox Canonical Form**
+- Copy constructor vs assignment
+- Operator overloading (`+ - * /`, comparisons, `<<`)
+- Fixed-point number logic (common in this module)
+
+**Why it matters:**
+Operator overloading teaches you how to design clean APIs and how copying should behave.
 
 </details>
 
-### **Module 03: Inheritance**
+---
+
+## ✅ Module 03: Inheritance
 <details>
 <summary>Click to expand</summary>
 
+**Goal:** Build inheritance hierarchies correctly and understand constructor/destructor order.
+
 **Topics covered:**
-- Basic inheritance (`class Derived : public Base`)
-- Constructor and destructor chaining
+- Basic inheritance: `class Derived : public Base`
 - Protected vs private members
-- Inheritance hierarchy design
+- Constructor chaining and destruction order
+- Reuse and extension patterns
 
-**Key exercises:**
-- ClapTrap, ScavTrap, FragTrap hierarchy
-- Understanding constructor call order
+**Typical exercises:**
+- ClapTrap / ScavTrap / FragTrap style hierarchy
 
 </details>
 
-### **Module 04: Polymorphism**
+---
+
+## ✅ Module 04: Polymorphism
 <details>
 <summary>Click to expand</summary>
 
+**Goal:** Learn runtime polymorphism and why virtual destructors are mandatory.
+
 **Topics covered:**
-- **Virtual functions** and **virtual destructors**
-- **Override** keyword
-- **Pure virtual functions** (abstract classes)
-- **Interfaces** in C++
-- Runtime polymorphism
+- Virtual functions and dynamic dispatch
+- Virtual destructors
+- Abstract classes + pure virtual methods
+- Deep copy problems (Brain example is classic)
+- Wrong polymorphism example (non-virtual pitfalls)
 
-**Key exercises:**
-- Animal, Dog, Cat hierarchy with `makeSound()`
-- WrongAnimal example (non-virtual functions)
-- Abstract Animal class
-- Brain class and deep copying
-
-**Example code:**
+**Example:**
 ```cpp
 class Animal {
 protected:
     std::string type;
 public:
-    virtual ~Animal() {}  // Virtual destructor!
-    virtual void makeSound() const = 0;  // Pure virtual
-};
-
-class Dog : public Animal {
-public:
-    void makeSound() const override {
-        std::cout << "Woof!" << std::endl;
-    }
+    virtual ~Animal() {}
+    virtual void makeSound() const = 0;
 };
 ```
 
 </details>
 
-### **Module 05: Exceptions**
+---
+
+## ✅ Module 05: Exceptions
 <details>
 <summary>Click to expand</summary>
 
+**Goal:** Write safe code that fails correctly and predictably.
+
 **Topics covered:**
-- **Exception handling** (try/catch/throw)
-- **Custom exception classes** (inheriting from `std::exception`)
-- **RAII** (Resource Acquisition Is Initialization)
-- Exception safety guarantees
-- `what()` function implementation
-
-**Key exercises:**
-- Bureaucrat class with grade validation
-- Form signing system
+- try/catch/throw
+- Custom exceptions inheriting `std::exception`
+- `what()` implementation
 - Exception propagation
+- RAII mindset: resource safety even on failure
 
-**Example code:**
+**Example:**
 ```cpp
 class GradeTooHighException : public std::exception {
 public:
-    virtual const char* what() const throw() {
-        return "Grade too high!";
-    }
+    const char* what() const throw() { return "Grade too high!"; }
 };
-
-void setGrade(int grade) {
-    if (grade < 1)
-        throw GradeTooHighException();
-}
 ```
+
+</details>
+
+---
+
+## ✅ Module 06: Casting, Serialization & RTTI
+<details>
+<summary>Click to expand</summary>
+
+**Goal:** Understand how C++ converts types and how runtime type identification works.
+
+**Topics covered:**
+- Scalar conversions (`char`, `int`, `float`, `double`)
+- `static_cast`, `reinterpret_cast`, `dynamic_cast`
+- **Serialization** basics (convert pointer/data into raw representation safely)
+- **RTTI** (Run-Time Type Information) and polymorphic type detection
+
+**Why it matters:**
+This module teaches what’s happening “under the hood” in C++ and helps avoid dangerous casts.
+
+**Common tasks you might see:**
+- Convert string input into multiple scalar representations
+- Serialize/deserialize pointers (`uintptr_t`)
+- Identify derived type from base pointer/reference
+
+</details>
+
+---
+
+## ✅ Module 07: Templates (Generic Programming)
+<details>
+<summary>Click to expand</summary>
+
+**Goal:** Write code that works with *any type* safely.
+
+**Topics covered:**
+- Function templates
+- Class templates
+- Template instantiation
+- Working with unknown types (constraints-by-design in C++98 style)
+
+**Why it matters:**
+Templates are the foundation of STL and modern C++ design.
+
+**Typical examples:**
+- `swap`, `min`, `max` templates
+- A small templated container/array with bounds checking
+
+</details>
+
+---
+
+## ✅ Module 08: STL Containers, Iterators & Algorithms
+<details>
+<summary>Click to expand</summary>
+
+**Goal:** Become productive with real C++ tools: containers + algorithms.
+
+**Topics covered:**
+- STL containers (often `vector`, `list`, `deque`, `map`, etc.)
+- Iterators (begin/end, iterator categories)
+- Algorithms (`find`, `for_each`, etc.)
+- Writing generic utilities that operate on containers
+- Handling errors/exceptions with STL usage
+
+**Why it matters:**
+In real projects, most work is manipulating data with STL.
+
+**Typical tasks you might see:**
+- Find/search inside a container
+- “Easy find” helper
+- Spans / ranges (min/max distance logic)
+- MutantStack-style iterator access to stack-like container
+
+</details>
+
+---
+
+## ✅ Module 09: Advanced STL + Data Processing Problems
+<details>
+<summary>Click to expand</summary>
+
+**Goal:** Use STL to solve more realistic problems: parsing, validation, performance, and clean design.
+
+**Topics covered:**
+- Input parsing and validation
+- Working with time/sequence data
+- Algorithmic thinking (efficiency matters)
+- Using multiple containers strategically (map, vector, deque)
+- Clean error handling and reporting
+
+**Common 42-style projects in this module:**
+- **BitcoinExchange**: parse CSV database + input file, compute values by date
+- **RPN**: Reverse Polish Notation calculator using stack logic
+- **PmergeMe**: sorting with performance constraints (merge-insert approach)
+
+**Why it matters:**
+This module is where everything comes together: STL + OOP + robustness + edge cases.
 
 </details>
 
@@ -176,10 +279,10 @@ void setGrade(int grade) {
 ## 🛠️ Installation
 
 ### Prerequisites
-- **C++ compiler** with C++98 support (g++, clang++)
-- **Make** (for building)
+- C++ compiler with **C++98** support (`g++` / `clang++`)
+- `make`
 
-### Clone the Repository
+### Clone
 ```bash
 git clone https://github.com/aybouatr/cpp.git
 cd cpp
@@ -189,86 +292,74 @@ cd cpp
 
 ## 🚀 Usage
 
-Each module/exercise has its own Makefile. Navigate to the desired exercise and build:
+Each exercise usually has its own Makefile:
 
 ```bash
-# Example: Building cpp01/ex00
-cd cpp01/ex00
+# Example:
+cd cpp04/ex00
 make
-./BraiiiiiiinnnzzzZ
+./your_program
 
-# Clean up
+# Cleanup
 make fclean
 ```
 
 ### Makefile Commands
 | Command | Description |
-|---------|-------------|
-| `make` | Compile the project |
+|--------:|-------------|
+| `make` | Compile |
 | `make clean` | Remove object files |
-| `make fclean` | Remove all generated files |
-| `make re` | Rebuild from scratch |
+| `make fclean` | Remove objects + binaries |
+| `make re` | Rebuild everything |
 
 ---
 
 ## 🔑 Key Concepts
 
-### 1. **Memory Management**
+### 1) Memory Management (Stack vs Heap)
 ```cpp
-// Stack allocation (automatic cleanup)
-Zombie zombie("Foo");
+Zombie z("Foo");          // stack (auto cleanup)
 
-// Heap allocation (manual cleanup required)
-Zombie* zombie = new Zombie("Bar");
-delete zombie;
+Zombie* p = new Zombie("Bar"); // heap (manual cleanup)
+delete p;
 
-// Array allocation
 Zombie* horde = new Zombie[10];
 delete[] horde;
 ```
 
-### 2. **References vs Pointers**
+### 2) References vs Pointers
 | Feature | Reference | Pointer |
-|---------|-----------|---------|
-| Null value | ❌ Cannot be null | ✅ Can be null |
-| Reassignment | ❌ Cannot be reassigned | ✅ Can be reassigned |
-| Syntax | `Type&` | `Type*` |
-| Initialization | **Must** be initialized | Can be initialized later |
+|--------|-----------|---------|
+| Null | ❌ | ✅ |
+| Reassign | ❌ | ✅ |
+| Syntax | `T&` | `T*` |
+| Must init | ✅ | ❌ |
 
-### 3. **Virtual Functions**
+### 3) Virtual Functions = Runtime Polymorphism
 ```cpp
-class Base {
-public:
-    virtual ~Base() {}  // Always virtual destructor!
-    virtual void func() { cout << "Base"; }
-};
+class Base { public: virtual ~Base() {} virtual void f() {} };
+class Derived : public Base { public: void f() {} };
 
-class Derived : public Base {
-public:
-    void func() override { cout << "Derived"; }
-};
-
-Base* ptr = new Derived();
-ptr->func();  // Prints "Derived" (polymorphism!)
-delete ptr;   // Calls Derived destructor (because virtual)
+Base* b = new Derived();
+b->f();
+delete b; // OK because destructor is virtual
 ```
 
-### 4. **Orthodox Canonical Form**
-Every class should have:
+### 4) Canonical Form (Rule of 3)
 ```cpp
 class MyClass {
 public:
-    MyClass();                           // Default constructor
-    MyClass(const MyClass& other);       // Copy constructor
-    MyClass& operator=(const MyClass&);  // Copy assignment
-    ~MyClass();                          // Destructor
+    MyClass();
+    MyClass(const MyClass&);
+    MyClass& operator=(const MyClass&);
+    ~MyClass();
 };
 ```
 
-### 5. **Exception Handling**
+### 5) Exceptions
 ```cpp
 try {
-    Bureaucrat b("Bob", 0);  // Throws exception
+    // code that may throw
 } catch (const std::exception& e) {
     std::cerr << e.what() << std::endl;
 }
@@ -278,52 +369,15 @@ try {
 
 ## 📊 Compilation Flags
 
-All projects use strict compilation:
 ```makefile
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 ```
-
-- `-Wall`: Enable all warnings
-- `-Wextra`: Enable extra warnings
-- `-Werror`: Treat warnings as errors
-- `-std=c++98`: Use C++98 standard
-
----
-
-## 🎓 Learning Path
-
-```mermaid
-graph LR
-    A[cpp00: Basics] --> B[cpp01: Memory]
-    B --> C[cpp02: Operators]
-    C --> D[cpp03: Inheritance]
-    D --> E[cpp04: Polymorphism]
-    E --> F[cpp05: Exceptions]
-```
-
-### Recommended Order:
-1. **cpp00**: Get comfortable with classes and basic syntax
-2. **cpp01**: Master memory management before moving forward
-3. **cpp02**: Understand operator overloading
-4. **cpp03**: Learn inheritance patterns
-5. **cpp04**: Master polymorphism (most important!)
-6. **cpp05**: Handle errors gracefully
-
----
-
-## 📝 Code Style
-
-This repository follows:
-- **42 School Norm** (header comments, naming conventions)
-- **RAII principles** (Resource Acquisition Is Initialization)
-- **Const correctness** (`const` member functions where appropriate)
-- **No memory leaks** (verified with `valgrind`)
 
 ---
 
 ## 🐛 Testing
 
-Run with memory leak detection:
+Memory leak check:
 ```bash
 valgrind --leak-check=full ./your_program
 ```
@@ -332,39 +386,31 @@ valgrind --leak-check=full ./your_program
 
 ## 🤝 Contributing
 
-This is an educational repository. Feel free to:
-- ⭐ Star the repo if you find it helpful
-- 🐛 Report issues or bugs
-- 💡 Suggest improvements
+Educational repo — contributions are welcome:
+- Bug reports / improvements
+- Better explanations
+- Extra tests / edge cases
 
 ---
 
 ## 📚 Resources
 
-- [cppreference.com](https://en.cppreference.com/) - C++ reference
-- [LearnCpp.com](https://www.learncpp.com/) - Comprehensive C++ tutorial
-- [C++ Core Guidelines](https://isocpp.github.io/CppCoreGuidelines/) - Best practices
-- [Effective C++](https://www.aristeia.com/books.html) - Scott Meyers book series
-
----
-
-## 📄 License
-
-This project is part of the 42 School curriculum.
+- https://en.cppreference.com/
+- https://www.learncpp.com/
+- https://isocpp.github.io/CppCoreGuidelines/
+- Scott Meyers — Effective C++
 
 ---
 
 ## 👤 Author
 
-**aybouatr**
-- GitHub: [@aybouatr](https://github.com/aybouatr)
+**aybouatr**  
+GitHub: https://github.com/aybouatr
 
 ---
 
 <div align="center">
 
-**Made with ❤️ as part of the 42 School curriculum**
-
-[![42](https://img.shields.io/badge/42-000000?style=for-the-badge&logo=42&logoColor=white)](https://42.fr/)
+**Made as part of the 42 School curriculum**
 
 </div>
